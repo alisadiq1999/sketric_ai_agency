@@ -1,0 +1,36 @@
+[project]
+name = "voice-assistant"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "agency-swarm>=0.3.1",
+    "aiohttp>=3.10.10",
+    "google-api-python-client>=2.149.0",
+    "google-auth-httplib2>=0.2.0",
+    "google-auth-oauthlib>=1.2.1",
+    "numpy",
+    "openai",
+    "pillow>=10.4.0",
+    "pyaudio",
+    "pygame>=2.6.1",
+    "python-dotenv>=1.0.1",
+    "selenium-stealth>=1.0.6",
+    "selenium>=4.25.0",
+    "webdriver-manager>=4.0.2",
+    "websockets",
+    "slack-sdk>=3.34.0",
+    "markdown2>=2.5.2",
+    "python-docx>=1.1.2",
+    "beautifulsoup4>=4.12.3",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+
+
+[project.scripts]
+main = "voice_assistant.main:main"
