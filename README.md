@@ -1,3 +1,5 @@
+[![Watch the Video](src/voice_assistant/agent_demo_thumbnail.jpg)](https://www.linkedin.com/posts/alisadiq99_aiagent-aiagencies-largelanguagemodels-activity-7282395185995476996-zrJG?utm_source=share&utm_medium=member_desktop)
+
 # Realtime API Async Python Assistant
 
 This project demonstrates the use of OpenAI's Realtime API to create an AI assistant capable of handling voice input, performing various tasks, and providing audio responses. It showcases the integration of tools, structured output responses, and real-time interaction.
@@ -159,7 +161,7 @@ To add a new agency:
 
 **The project is forked from** **[Agency-Swarm](https://github.com/VRSEN/agency-swarm)**
 
-- [X]  Implement standalone tools
+- [X] Implement standalone tools
 - [X] Complete agency integration
 - [ ] Develop interruption handling for smoother conversations
 - [ ] Implement transcript logging for conversation tracking
