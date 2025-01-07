@@ -5,11 +5,13 @@ This project demonstrates the use of OpenAI's Realtime API to create an AI assis
 ## Features
 
 ### Core Functionality
+
 - Real-time voice interaction with an AI assistant
 - Asynchronous audio input and output handling
 - Custom tools execution based on user requests
 
 ### Task Delegation & Communication
+
 - **Synchronous Communication**: Direct, immediate interaction with agents for quick tasks
 - **Asynchronous Task Delegation**: Long-running task delegation to agencies/agents
   - Send messages to agency CEOs without waiting for responses
@@ -18,6 +20,7 @@ This project demonstrates the use of OpenAI's Realtime API to create an AI assis
 - Multiple specialized AI agent teams working collaboratively
 
 ### Integration Services
+
 - Google Calendar integration for meeting schedule management
 - Gmail integration for email handling and drafting
 - Browser interaction for web-related tasks
@@ -26,29 +29,33 @@ This project demonstrates the use of OpenAI's Realtime API to create an AI assis
 ## Available Tools
 
 ### Agency Communication Tools
+
 - **SendMessage**: Synchronous communication with agencies/agents for quick tasks
+
   - Direct interaction with immediate response
   - Suitable for simple, fast-completing tasks
-
 - **SendMessageAsync**: Asynchronous task delegation
+
   - Initiates long-running tasks without waiting
   - Returns immediately to allow other operations
-
 - **GetResponse**: Task status and response retrieval
+
   - Checks completion status of async tasks
   - Retrieves agent responses when tasks complete
 
 ### Google Workspace Integration
+
 - **FetchDailyMeetingSchedule**: Fetches and formats the user's daily meeting schedule from Google Calendar
 - **GetGmailSummary**: Provides a concise summary of unread Gmail messages from the past 48 hours
 - **DraftGmail**: Composes email drafts, either as a reply to an email from GetGmailSummary, or as a new message
 
 ### System Tools
+
 - **GetScreenDescription**: Captures and analyzes the current screen content for the assistant
 - **FileOps**:
-   - **CreateFile**: Generates new files with user-specified content
-   - **UpdateFile**: Modifies existing files with new content
-   - **DeleteFile**: Removes specified files from the system
+  - **CreateFile**: Generates new files with user-specified content
+  - **UpdateFile**: Modifies existing files with new content
+  - **DeleteFile**: Removes specified files from the system
 - **OpenBrowser**: Launches a web browser with a given URL
 - **GetCurrentDateTime**: Retrieves and reports the current date and time
 
@@ -117,16 +124,12 @@ After launching the assistant, interact using voice commands. Example interactio
 
 1. **Asynchronous WebSocket Communication**:
    Utilizes `websockets` for asynchronous connection with the OpenAI Realtime API
-
 2. **Audio Input/Output Handling**:
    Manages real-time audio capture and playback with PCM16 format support and VAD (Voice Activity Detection)
-
 3. **Function Execution**:
    Standalone tools in `tools/` are invoked by the AI assistant based on user requests
-
 4. **Structured Output Processing**:
    OpenAI's Structured Outputs are used to generate precise, structured responses
-
 5. **Visual Interface**:
    PyGame-based interface provides real-time visualization of audio volume
 
@@ -137,6 +140,7 @@ After launching the assistant, interact using voice commands. Example interactio
 Standalone tools are independent functions not associated with specific agents or agencies.
 
 To add a new standalone tool:
+
 1. Create a new file in the `tools/` directory
 2. Implement the `run` method using async syntax, utilizing `asyncio.to_thread` for blocking operations
 3. Install any necessary dependencies: `uv add <package_name>`
@@ -146,14 +150,17 @@ To add a new standalone tool:
 Agencies are Agency-Swarm style teams of specialized agents working together on complex tasks.
 
 To add a new agency:
+
 1. Drag-and-drop your agency folder into the `agencies/` directory
 2. Set `async_mode="threading"` in agency configuration to enable async messaging (SendMessageAsync and GetResponse)
 3. Install any required dependencies: `uv add <package_name>`
 
 ## Development Roadmap
 
-- [x] Implement standalone tools
-- [x] Complete agency integration
+**The project is forked from** **[Agency-Swarm](https://github.com/VRSEN/agency-swarm)**
+
+- [X]  Implement standalone tools
+- [X] Complete agency integration
 - [ ] Develop interruption handling for smoother conversations
 - [ ] Implement transcript logging for conversation tracking
 - [ ] Convert `personalization.json` to a Pydantic model for improved type safety
