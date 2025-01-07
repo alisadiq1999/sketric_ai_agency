@@ -43,7 +43,7 @@ async def realtime_api():
 
             exit_event = asyncio.Event()
 
-            url = "wss://api.openai.com/v1/realtime?model=gpt-4o-realtime-preview-2024-10-01"
+            url = "wss://api.openai.com/v1/realtime?model=gpt-4o-mini-realtime-preview-2024-12-17"
             headers = {
                 "Authorization": f"Bearer {api_key}",
                 "OpenAI-Beta": "realtime=v1",
@@ -60,7 +60,7 @@ async def realtime_api():
                     "session": {
                         "modalities": ["text", "audio"],
                         "instructions": SESSION_INSTRUCTIONS,
-                        "voice": "shimmer",
+                        "voice": "sage",
                         "input_audio_format": "pcm16",
                         "output_audio_format": "pcm16",
                         "turn_detection": {
