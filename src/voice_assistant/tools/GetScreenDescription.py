@@ -19,7 +19,10 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 
 class GetScreenDescription(BaseTool):
-    """Get a text description of the user's active window."""
+    """
+    This tool is invoked whenever the user asks questions about their current screen, 
+    such as "describe my screen", "can you see my screen and describe it?","what's on my screen right now?", or any similar query referring to the current screen content.
+    """
 
     prompt: str = Field(..., description="Prompt to analyze the screenshot")
 
@@ -163,7 +166,7 @@ class GetScreenDescription(BaseTool):
     def _resize_image(self, image_data: bytes) -> bytes:
         """Resize the image to reduce payload size while preserving aspect ratio."""
         with Image.open(io.BytesIO(image_data)) as img:
-            img.thumbnail((1600, 1200), Image.ANTIALIAS)
+            img.thumbnail((1600, 1200), Image.LANCZOS)
             with io.BytesIO() as output:
                 img.save(output, format="PNG")
                 return output.getvalue()
@@ -173,7 +176,7 @@ if __name__ == "__main__":
 
     async def test_tool():
         tool = GetScreenDescription(
-            prompt="What do you see in this screenshot? Describe the main elements."
+            prompt="What do you see on my screen? Can you describe it?"
         )
         try:
             result = await tool.run()
